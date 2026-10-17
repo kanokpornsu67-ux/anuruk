@@ -4,7 +4,7 @@ import '../services/database_helper.dart';
 
 class AppState extends ChangeNotifier {
   // รหัสผ่านกลางของชมรม
-  static const String clubPassword = '******';
+  static const String clubPassword = 'anuruk';
 
   final List<Place> places = [];
   final List<Equipment> equipments = [];
@@ -106,7 +106,7 @@ class AppState extends ChangeNotifier {
   List<DeptTask> tasksOf(String campId, {Department? dept}) =>
       tasks.where((t) => t.campId == campId && (dept == null || t.dept == dept)).toList();
 
-  // ---------- CAMP CRUD ----------
+
   Camp createCamp({
     required String name,
     required DateTime start,
@@ -149,7 +149,6 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ---------- PLACES (จัดการสถานที่อิสระ) ----------
   void addPlace({required String name, required String province, required int capacity, required String contact}) {
     final p = Place(id: _id('p'), name: name, province: province, capacity: capacity, contact: contact);
     places.add(p);
@@ -163,7 +162,7 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ---------- EQUIPMENT (จัดการอุปกรณ์อิสระรายค่าย) ----------
+
   void addEquipmentUse(String campId, String name, String category, int qty, String unit) {
     final eId = _id('eq');
     final eq = Equipment(id: eId, name: name, category: category, unit: unit, total: qty);
@@ -184,7 +183,7 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ---------- TASKS (งานของแต่ละฝ่าย) ----------
+
   void addTask(String campId, Department dept, String title, {String note = ''}) {
     final t = DeptTask(id: _id('task'), campId: campId, dept: dept, title: title, note: note);
     tasks.add(t);
@@ -209,7 +208,6 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ---------- READINESS (ความพร้อม & เปอร์เซ็นต์) ----------
   double readiness(String campId, Department dept) {
     final list = tasksOf(campId, dept: dept);
     if (list.isEmpty) return 0;
@@ -225,7 +223,6 @@ class AppState extends ChangeNotifier {
   List<Department> get workingDepartments =>
       Department.values.where((d) => d != Department.committee).toList();
 
-  // ---------- CLOSE CAMP ----------
   void closeCamp(String campId, CampSummary summary) {
     final c = camp(campId);
     if (c == null) return;
@@ -234,7 +231,7 @@ class AppState extends ChangeNotifier {
     _persist(_db.saveCamp(c));
     notifyListeners();
   }
-  //-------update camp -------------
+
   void updateCampInfo(
     String campId, {
     required String name,
@@ -265,7 +262,6 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ---------- SEED ----------
   void seed() {
     addPlace(name: 'อุทยานแห่งชาติดอยอินทนนท์', province: 'เชียงใหม่', capacity: 150, contact: '053-286-729');
     addPlace(name: 'ศูนย์เรียนรู้ป่าชุมชนบ้านห้วยปลาหลด', province: 'ตาก', capacity: 80, contact: '081-234-5678');
@@ -291,7 +287,7 @@ class AppState extends ChangeNotifier {
     // เพิ่มตัวแปรเก็บข้อมูลปฏิทินตรงนี้
   final List<CalendarEvent> CalendarEvents = [];
 
-  // เพิ่มฟังก์ชันจัดการปฏิทินตรงนี้
+  // เพิ่มฟังก์ชันจัดการปฏิทิน
   Future<void> addCalendarEvent({
     required String title,
     required String description,

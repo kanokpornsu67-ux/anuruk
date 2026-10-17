@@ -26,7 +26,7 @@ class StatusChip extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
         decoration: BoxDecoration(
-          color: color.withOpacity(.12),
+          color: color.withValues(alpha: 0.12),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Text(label, style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.w600)),
@@ -119,7 +119,7 @@ class DeptAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) => CircleAvatar(
         radius: 18,
-        backgroundColor: dept.color.withOpacity(.15),
+        backgroundColor: dept.color.withValues(alpha: 0.15),
         child: Icon(dept.icon, size: 18, color: dept.color),
       );
 }

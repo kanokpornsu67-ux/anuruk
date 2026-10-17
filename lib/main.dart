@@ -8,10 +8,6 @@ import 'screens/login_screen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // ถ้ารันบน Windows / Linux / macOS ให้เปิดบรรทัดนี้ (และเพิ่ม sqflite_common_ffi ใน pubspec)
-  // sqfliteFfiInit();
-  // databaseFactory = databaseFactoryFfi;
-
   final appState = AppState();
   await appState.init(); // โหลดข้อมูลจากดาต้าเบสก่อนแสดงหน้าแรก
 
@@ -35,7 +31,7 @@ class GreenClubApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: kGreen),
         scaffoldBackgroundColor: kBg,
-        textTheme: GoogleFonts.sarabunTextTheme(), // ใส่ฟอนต์ไทยใน assets ได้ หรือลบบรรทัดนี้
+        textTheme: GoogleFonts.sarabunTextTheme(), 
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
           foregroundColor: kDarkGreen,

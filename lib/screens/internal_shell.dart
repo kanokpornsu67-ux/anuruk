@@ -48,7 +48,7 @@ class _InternalShellState extends State<InternalShell> {
   Navigator.pushAndRemoveUntil(
     context,
     MaterialPageRoute(builder: (_) => const LoginScreen()),
-    (route) => false, // ล้างประวัติหน้าเก่าทั้งหมด ป้องกันหน้าจอดำ
+    (route) => false,
   );
               }
             },
