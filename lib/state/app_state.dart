@@ -4,7 +4,7 @@ import '../services/database_helper.dart';
 
 class AppState extends ChangeNotifier {
   // รหัสผ่านกลางของชมรม
-  static const String clubPassword = 'anuruk';
+  static const String clubPassword = '******';
 
   final List<Place> places = [];
   final List<Equipment> equipments = [];
