@@ -1,0 +1,40 @@
+name: anuruk_app
+description: "ระบบจัดการและเก็บข้อมูลค่าย ชมรมอนุรักษ์ธรรมชาติและสิ่งแวดล้อม"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^8.2.1
+  provider: ^6.1.2
+  sqflite: ^2.3.3
+  path: ^1.9.0
+  image_picker: ^1.1.2
+  table_calendar: ^3.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/images/Anurukkk.jpg"
+  min_sdk_version: 21
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/logo.png
+    - assets/images/Anuruk.jpg
+    - assets/images/one.jpg
+    - assets/images/two.jpg
+    - assets/images/three.jpg
+    - assets/images/Anurukkk.jpg
